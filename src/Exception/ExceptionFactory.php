@@ -6,10 +6,10 @@ use GuzzleHttp\Exception\RequestException;
 
 abstract class ExceptionFactory
 {
-    public static function generateFromRequestException(RequestException $e)
+    public static function generateFromRequestException(RequestException $e, $requestBody = null)
     {
-        $body = (string) $e->getResponse()->getBody();
-        $data = json_decode($body, true);
+        $responseBody = (string) $e->getResponse()->getBody();
+        $data         = json_decode($responseBody, true);
 
         if (false === is_array($data)) {
             throw static::createDefaultException($e);
@@ -21,7 +21,7 @@ abstract class ExceptionFactory
             throw static::createDefaultException($e);
         }
 
-        $message = static::generateErrorMessage($error, $e);
+        $message = static::generateErrorMessage($error, $e, $requestBody);
 
         switch ($error['errorCode']) {
             case 'DUPLICATES_DETECTED':
@@ -39,10 +39,15 @@ abstract class ExceptionFactory
         }
     }
 
-    private static function generateErrorMessage(array $error, RequestException $e)
+    private static function generateErrorMessage(array $error, RequestException $e, $requestBody = null)
     {
         $message = array_key_exists('message', $error) ? $error['message'] : $e->getMessage();
-        $message .= "\nRequest: ".$e->getRequest()->getUri();
+
+        if (false === is_null($requestBody)) {
+            $message .= ".\nRequest body: ".$requestBody;
+        }
+
+        $message .= ".\nRequest url: ".$e->getRequest()->getUri();
 
         return $message;
     }

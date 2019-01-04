@@ -156,7 +156,7 @@ class Client implements ClientInterface
         try {
             $response = $this->httpClient->send($request);
         } catch (RequestException $e) {
-            throw Exception\ExceptionFactory::generateFromRequestException($e);
+            throw Exception\ExceptionFactory::generateFromRequestException($e, $request->getBody());
         } catch (\Exception $e) {
             throw new SalesforceClientException($e->getMessage(), 0, $e);
         }
