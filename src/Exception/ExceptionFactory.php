@@ -33,9 +33,12 @@ abstract class ExceptionFactory
             case 'NOT_FOUND':
                 return new NotFoundException($message);
                 break;
+            case 'FIELD_CUSTOM_VALIDATION_EXCEPTION':
+                return new FieldCustomValidationException($message);
+                break;
             default:
                 return ErrorCodeException::createFromCode($error['errorCode'], $message);
-            break;
+                break;
         }
     }
 
