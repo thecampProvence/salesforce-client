@@ -10,8 +10,7 @@ Supported technologies:
 
 Please, contribute to support other one.
 
-Usage
------
+# Usage
 
 ```php
 use WakeOnWeb\SalesforceClient\REST;
@@ -35,8 +34,7 @@ Available exception -------------------
 - NotFoundException (when an object cannot be found)
 - ...
 
-Get object
------------
+## Get object
 
 ```php
 try {
@@ -51,8 +49,7 @@ try {
 //$client->getObject( 'Account', '1337ID', ['Name', 'OwnerId', 'CreatedAt'] )); // specific fields
 ```
 
-Create object 
------------
+## Create object
 
 ```php
 // creation will be a SalesforceObjectCreationObject
@@ -63,22 +60,19 @@ $creation = $client->createObject( 'Account', ['name' => 'Chuck Norrs'] );
 // $creation->getWarnings();
 ```
 
-Edit object 
------------
+## Edit object
 
 ```php
 $client->patchObject( 'Account', '1337ID', ['name' => 'Chuck Norris'] ));
 ```
 
-Delete object 
------------
+## Delete object
 
 ```
 $client->deleteObject( 'Account', '1337ID'));
 ```
 
-SOQL
-----
+## SOQL
 
 ```php
 // creation will be a SalesforceObjectCreationObjectResults
@@ -89,11 +83,27 @@ $client->searchSOQL('SELECT name from Account', ClientInterface::ALL);
 // $creation->getRecords();
 ```
 
-Other
------
+## Other
 
 ```php
 $client->getAvailableResources();
 $client->getAllObjects();
 $client->describeObjectMetadata('Account');
 ```
+
+# Todos
+
+## Refactoring notes
+
+Migrate unit tests (ex: SOQLQueryBuilder)
+
+middleware-components-lib:
+ * Reorganize/rename salesforce/model/ classes
+ * migrate EventData constants prefixed with `SF_` (Member special case not prefixed)
+ * Member constant RELATIONSHIP_MAPPING deprecated => use RELATION_WITH_THECAMP constants instead
+ * Member update RELATION_WITH_THECAMP handling (isBuyer(), isExpert()...)
+ * Member check usage of deprecated constants (SALUTATION, MAILING_COUNTRY_CODES_LIST, SF_TYPE_OFRELATIONSHIP, ...)
+ * Member add relation with account (on AccountId)
+Serializer:
+ * Model fields beginning with `npe01` do not need `ucfirst`
+
