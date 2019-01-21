@@ -72,6 +72,6 @@ trait TypeOfRelationship
      */
     public static function getType_of_relationship_new__cList(): array
     {
-        return $this->getClassConstantsFromPrefix('TYPE_OF_RELATIONSHIP');
+        return static::getClassConstantsFromPrefix('TYPE_OF_RELATIONSHIP');
     }
 }

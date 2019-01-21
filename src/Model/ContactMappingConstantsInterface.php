@@ -33,7 +33,13 @@ interface ContactMappingConstantsInterface
     /**
      * @var int Salesforce origin of member mapping
      */
-    const ORIGIN_OF_MEMBER_SUBSCRIPTION = 2;
+    CONST ORIGIN_OF_MEMBER_INPUT_BACK_OFFICE = 1;
+    CONST ORIGIN_OF_MEMBER_SUBSCRIPTION      = 2;
+    CONST ORIGIN_OF_MEMBER_WEBSITE           = 3;
+    CONST ORIGIN_OF_MEMBER_COOPTION          = 6;
+    CONST ORIGIN_OF_MEMBER_LEAD              = 7;
+    CONST ORIGIN_OF_MEMBER_SOCIAL_NETWORK    = 9;
+    CONST ORIGIN_OF_MEMBER_IRAISER           = 10;
 
     /**
      * @var int Salesforce relations with thecamp list mapping
@@ -212,8 +218,8 @@ interface ContactMappingConstantsInterface
      * @var array Salesforce languages list mapping
      */
     CONST PREFERRED_LANGUAGES_LIST = [
-        'FR',
-        'EN',
+        1 => 'EN',
+        2 => 'FR',
     ];
 
     /**

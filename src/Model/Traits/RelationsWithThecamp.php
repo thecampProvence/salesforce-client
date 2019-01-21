@@ -72,6 +72,6 @@ trait RelationsWithThecamp
      */
     public static function getRelations_with_thecamp__cList(): array
     {
-        return $this->getClassConstantsFromPrefix('RELATION_WITH_THECAMP');
+        return static::getClassConstantsFromPrefix('RELATION_WITH_THECAMP');
     }
 }

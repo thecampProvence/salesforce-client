@@ -104,7 +104,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @var string
      */
-    private $linkedin_profile_c;
+    private $linkedin_profile__c;
 
     /**
      * @var string
@@ -119,7 +119,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @var string
      */
-    private $preferred_Language_new__c = 'EN';
+    private $preferred_Language_new__c = 1;
 
     /**
      * @var array Nationalities
@@ -147,14 +147,14 @@ class Contact implements ContactMappingConstantsInterface
     private $mailingPostalCode;
 
     /**
-     * @var string Country code
+     * @var string Mailing country code
      */
-    private $mailingCountry;
+    private $mailingCountryCode;
 
     /**
      * @var string External id to link Contact to an Account
      */
-    private $accountId
+    private $accountId;
 
 
     /**
@@ -225,7 +225,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getSalutationList(): array
     {
-        return $this->getClassConstantsFromPrefix('SALUTATION');
+        return static::getClassConstantsFromPrefix('SALUTATION');
     }
 
     /**
@@ -323,7 +323,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getOrigin_of_member__cList(): array
     {
-        return [self::ORIGIN_OF_MEMBER_SUBSCRIPTION];
+        return static::getClassConstantsFromPrefix('ORIGIN_OF_MEMBER');
     }
 
     /**
@@ -585,19 +585,19 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getLinkedin_profile_c(): ?string
+    public function getLinkedin_profile__c(): ?string
     {
-        return $this->linkedin_profile_c;
+        return $this->linkedin_profile__c;
     }
 
     /**
-     * @param string $linkedin_profile_c
+     * @param string $linkedin_profile__c
      *
      * @return self
      */
-    public function setLinkedin_profile_c(string $linkedin_profile_c): self
+    public function setLinkedin_profile__c(string $linkedin_profile__c): self
     {
-        $this->linkedin_profile_c = $linkedin_profile_c;
+        $this->linkedin_profile__c = $linkedin_profile__c;
 
         return $this;
     }
@@ -680,7 +680,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getLanguage_new__cList(): array
     {
-        return self::LANGUAGES_LIST;
+        return array_keys(self::LANGUAGES_LIST);
     }
 
     /**
@@ -718,7 +718,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getPreferred_Language_new__cList(): array
     {
-        return self::PREFERRED_LANGUAGES_LIST;
+        return array_keys(self::PREFERRED_LANGUAGES_LIST);
     }
 
     /**
@@ -779,7 +779,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getNationality_new__cList(): array
     {
-        return self::NATIONALITIES_LIST;
+        return array_keys(self::NATIONALITIES_LIST);
     }
 
     /**
@@ -840,7 +840,7 @@ class Contact implements ContactMappingConstantsInterface
      */
     public static function getInterests_new__cList(): array
     {
-        return self::INTERESTS_LIST;
+        return array_keys(self::INTERESTS_LIST);
     }
 
     /**
@@ -906,39 +906,41 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getMailingCountry(): ?string
+    public function getMailingCountryCode(): ?string
     {
-        return $this->mailingCountry;
+        return $this->mailingCountryCode;
     }
 
     /**
-     * @param string $mailingCountry
+     * @param string $mailingCountryCode
      *
      * @return self
      *
      * @throws InvalidArgumentException
      */
-    public function setMailingCountry(string $mailingCountry): self
+    public function setMailingCountryCode(string $mailingCountryCode): self
     {
-        if (false === in_array($mailingCountry, self::getMailingCountryList())) {
+        $mailingCountryCode = strtoupper($mailingCountryCode);
+
+        if (false === in_array($mailingCountryCode, self::getMailingCountryCodeList())) {
             throw new \InvalidArgumentException(
-                sprintf('Unknown MailingCountry "%s"', $mailingCountry)
+                sprintf('Unknown MailingCountryCode "%s"', $mailingCountryCode)
             );
         }
 
-        $this->mailingCountry = $mailingCountry;
+        $this->mailingCountryCode = $mailingCountryCode;
 
         return $this;
     }
 
     /**
-     * Get mailingCountry list
+     * Get mailingCountryCode list
      *
      * @return array
      */
-    public static function getMailingCountryList(): array
+    public static function getMailingCountryCodeList(): array
     {
-        return self::MAILING_COUNTRY_CODES_LIST;
+        return array_keys(self::MAILING_COUNTRY_CODES_LIST);
     }
 
     /**

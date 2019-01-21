@@ -143,7 +143,46 @@ class Npe5__Affiliation__c
      */
     public static function getNpe5__Status__cList(): array
     {
-        return $this->getClassConstantsFromPrefix('STATUS');
+        return static::getClassConstantsFromPrefix('STATUS');
     }
 
+    /**
+     * @return string
+     */
+    public function getNpe5__Role__c(): ?string
+    {
+        return $this->npe5__Role__c;
+    }
+
+    /**
+     * @param string $npe5__Role__c
+     *
+     * @return self
+     */
+    public function setNpe5__Role__c(string $npe5__Role__c): self
+    {
+        $this->npe5__Role__c = $npe5__Role__c;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getNpe5__Primary__c(): bool
+    {
+        return $this->npe5__Primary__c;
+    }
+
+    /**
+     * @param bool $npe5__Primary__c
+     *
+     * @return self
+     */
+    public function setNpe5__Primary__c(bool $npe5__Primary__c): self
+    {
+        $this->npe5__Primary__c = $npe5__Primary__c;
+
+        return $this;
+    }
 }
