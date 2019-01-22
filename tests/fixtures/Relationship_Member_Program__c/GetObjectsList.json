@@ -1,0 +1,45 @@
+{
+    "totalSize": 3,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Relationship_Member_Program__c",
+                "url": "/services/data/v40.0/sobjects/Relationship_Member_Program__c/a0o0Y000002rhMtQAI"
+            },
+            "Id": "a0o0Y000002rhMtQAI",
+            "Program__c": "a0r0Y00000Yjy9eQAB",
+            "Member__c": "0030Y00000HWysTQAT",
+            "Transaction_Digitick_ID__c": null,
+            "Ticket_Digitick_ID__c": null,
+            "Subscription_date__c": null,
+            "Type_of_Relationship_new__c": "4"
+        },
+        {
+            "attributes": {
+                "type": "Relationship_Member_Program__c",
+                "url": "/services/data/v40.0/sobjects/Relationship_Member_Program__c/a0o0Y000002rzYCQAY"
+            },
+            "Id": "a0o0Y000002rzYCQAY",
+            "Program__c": "a0r0Y00000Yjy9nQAB",
+            "Member__c": "0030Y00000HWy2zQAD",
+            "Transaction_Digitick_ID__c": null,
+            "Ticket_Digitick_ID__c": null,
+            "Subscription_date__c": null,
+            "Type_of_Relationship_new__c": "1"
+        },
+        {
+            "attributes": {
+                "type": "Relationship_Member_Program__c",
+                "url": "/services/data/v40.0/sobjects/Relationship_Member_Program__c/a0o0Y000005UAyOQAW"
+            },
+            "Id": "a0o0Y000005UAyOQAW",
+            "Program__c": "a0r0Y00000dSV1VQAW",
+            "Member__c": "0030Y00001Ro2qJQAR",
+            "Transaction_Digitick_ID__c": null,
+            "Ticket_Digitick_ID__c": null,
+            "Subscription_date__c": null,
+            "Type_of_Relationship_new__c": "2"
+        }
+    ]
+}

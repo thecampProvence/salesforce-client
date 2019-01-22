@@ -1,0 +1,11 @@
+{
+    "attributes": {
+        "type": "Relationship_Program_Session__c",
+        "url": "/services/data/v40.0/sobjects/Relationship_Program_Session__c/a0p1n000007AZD8AAO"
+    },
+    "Id": "a0p1n000007AZD8AAO",
+    "OwnerId": "0050Y000003Pr09QAC",
+    "IsDeleted": false,
+    "Program__c": "0031n00001pPQ79AAG",
+    "Session__c": "a0r1n00000gTKOPAA4"
+}

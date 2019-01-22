@@ -1,0 +1,32 @@
+{
+    "totalSize": 2,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Relationship_Member_Session__c",
+                "url": "/services/data/v40.0/sobjects/Relationship_Member_Session__c/a0p1n000007AZDDAA4"
+            },
+            "Id": "a0p1n000007AZDDAA4",
+            "Session__c": "a0r1n00000gTKOPAA4",
+            "Member__c": "0031n00001pPQ79AAG",
+            "Transaction_Digitick_ID__c": null,
+            "Ticket_Digitick_ID__c": "digitickTicketingIds - 284355827",
+            "Subscription_date__c": "2019-01-15T13:35:37.000+0000",
+            "Type_of_Relationship_new__c": "2"
+        },
+        {
+            "attributes": {
+                "type": "Relationship_Member_Session__c",
+                "url": "/services/data/v40.0/sobjects/Relationship_Member_Session__c/a0p1n000007AZD8AAO"
+            },
+            "Id": "a0p1n000007AZD8AAO",
+            "Session__c": "a0r1n00000gTKOPAA4",
+            "Member__c": "0031n00001pPQ79AAG",
+            "Transaction_Digitick_ID__c": "digitickTicketingIds - 112490779 - 5992351",
+            "Ticket_Digitick_ID__c": null,
+            "Subscription_date__c": "2019-01-15T13:35:37.000+0000",
+            "Type_of_Relationship_new__c": "1"
+        }
+    ]
+}

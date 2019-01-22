@@ -1,0 +1,198 @@
+{
+    "totalSize": 16,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q0000034PziEAE"
+            },
+            "Id": "a0H1q0000034PziEAE",
+            "npe5__Organization__c": "0011q00000D3xWrAAJ",
+            "npe5__Contact__c": "0031q00000A83vSAAR",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001sx0XEAQ"
+            },
+            "Id": "a0H1q000001sx0XEAQ",
+            "npe5__Organization__c": "0011q00000ANsR4AAL",
+            "npe5__Contact__c": "0031q000008SVk2AAG",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": false
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q0000034PwhEAE"
+            },
+            "Id": "a0H1q0000034PwhEAE",
+            "npe5__Organization__c": "0011q00000D3xWrAAJ",
+            "npe5__Contact__c": "0031q00000A83vSAAR",
+            "npe5__Status__c": "Former",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": false
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001sx0SEAQ"
+            },
+            "Id": "a0H1q000001sx0SEAQ",
+            "npe5__Organization__c": "0011q00000ANsTGAA1",
+            "npe5__Contact__c": "0031q000008SVk2AAG",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": "responsable d'innovation",
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001siGLEAY"
+            },
+            "Id": "a0H1q000001siGLEAY",
+            "npe5__Organization__c": "0011q000008K1PfAAK",
+            "npe5__Contact__c": "0031q000006Ry6HAAS",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": "CEO et Founder 1702",
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001swoREAQ"
+            },
+            "Id": "a0H1q000001swoREAQ",
+            "npe5__Organization__c": "0011q00000ANlnXAAT",
+            "npe5__Contact__c": "0031q000008SU6qAAG",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": "DRH",
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q0000033NqNEAU"
+            },
+            "Id": "a0H1q0000033NqNEAU",
+            "npe5__Organization__c": "0011q00000D2l4kAAB",
+            "npe5__Contact__c": "0031q00000A7bEMAAZ",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001sx0IEAQ"
+            },
+            "Id": "a0H1q000001sx0IEAQ",
+            "npe5__Organization__c": "0011q00000ANsR4AAL",
+            "npe5__Contact__c": "0031q000008SViQAAW",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": "CEO",
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348pKEAQ"
+            },
+            "Id": "a0H1q00000348pKEAQ",
+            "npe5__Organization__c": "0011q00000D3xWrAAJ",
+            "npe5__Contact__c": "0031q00000A8RGvAAN",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": false
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001t4OhEAI"
+            },
+            "Id": "a0H1q000001t4OhEAI",
+            "npe5__Organization__c": "0011q00000AwL0mAAF",
+            "npe5__Contact__c": "0031q000009X9ArAAK",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001tLRkEAM"
+            },
+            "Id": "a0H1q000001tLRkEAM",
+            "npe5__Organization__c": "0011q00000D1Rx3AAF",
+            "npe5__Contact__c": "0031q000009ZUI3AAO",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348W4EAI"
+            },
+            "Id": "a0H1q00000348W4EAI",
+            "npe5__Organization__c": "0011q00000D3hMLAAZ",
+            "npe5__Contact__c": "0031q00000A8EaNAAV",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": false
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348VpEAI"
+            },
+            "Id": "a0H1q00000348VpEAI",
+            "npe5__Organization__c": "0011q00000D3hKPAAZ",
+            "npe5__Contact__c": "0031q00000A8I8IAAV",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348VuEAI"
+            },
+            "Id": "a0H1q00000348VuEAI",
+            "npe5__Organization__c": "0011q00000D3hKPAAZ",
+            "npe5__Contact__c": "0031q00000A8I8NAAV",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348p0EAA"
+            },
+            "Id": "a0H1q00000348p0EAA",
+            "npe5__Organization__c": "0011q00000D3xVPAAZ",
+            "npe5__Contact__c": "0031q00000A8RGvAAN",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        },
+        {
+            "attributes": {
+                "type": "npe5__Affiliation__c",
+                "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q00000348WEEAY"
+            },
+            "Id": "a0H1q00000348WEEAY",
+            "npe5__Organization__c": "0011q00000D3hVSAAZ",
+            "npe5__Contact__c": "0031q00000A8IIXAA3",
+            "npe5__Status__c": "Current",
+            "npe5__Role__c": null,
+            "npe5__Primary__c": true
+        }
+    ]
+}

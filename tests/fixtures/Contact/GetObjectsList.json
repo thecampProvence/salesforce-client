@@ -1,0 +1,186 @@
+{
+    "totalSize": 10,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000006Ry6HAAS"
+            },
+            "Id": "0031q000006Ry6HAAS",
+            "Salutation": "Mr.",
+            "FirstName": "Rene",
+            "LastName": "Caribou",
+            "Origin_of_member__c": "1",
+            "Country__c": "1",
+            "Phone": "611225588",
+            "Language_new__c": "8;13",
+            "Preferred_Language_new__c": "2",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "13"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000009WPnLAAW"
+            },
+            "Id": "0031q000009WPnLAAW",
+            "Salutation": "Mr.",
+            "FirstName": "Florian",
+            "LastName": "Thauvin",
+            "Origin_of_member__c": "1",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "2",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "10"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000009X9ArAAK"
+            },
+            "Id": "0031q000009X9ArAAK",
+            "Salutation": "Mr.",
+            "FirstName": "Structureasupprimer",
+            "LastName": "Structureasupprimer",
+            "Origin_of_member__c": "2",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "1",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "7;13"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000008SVjEAAW"
+            },
+            "Id": "0031q000008SVjEAAW",
+            "Salutation": "Mrs.",
+            "FirstName": "EMMANUELLE",
+            "LastName": "JOYEUSE",
+            "Origin_of_member__c": "7",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "1",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "8;13"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000009ZUI3AAO"
+            },
+            "Id": "0031q000009ZUI3AAO",
+            "Salutation": "Mr.",
+            "FirstName": "TEST MARION",
+            "LastName": "SUR DUPLICAT EMAIL",
+            "Origin_of_member__c": "1",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "1",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "4;13"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000009WOcnAAG"
+            },
+            "Id": "0031q000009WOcnAAG",
+            "Salutation": "Mr.",
+            "FirstName": "André Pierre",
+            "LastName": "Gignac",
+            "Origin_of_member__c": "1",
+            "Country__c": "1",
+            "Phone": "699775544",
+            "Language_new__c": "8;13;34",
+            "Preferred_Language_new__c": "2",
+            "Interests_new__c": null,
+            "MailingCountryCode": "FR",
+            "Relations_with_thecamp__c": "10"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000009ZULBAA4"
+            },
+            "Id": "0031q000009ZULBAA4",
+            "Salutation": null,
+            "FirstName": "TEST CASE",
+            "LastName": "kjhgkjhg",
+            "Origin_of_member__c": "1",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "1",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "4"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000008SU6qAAG"
+            },
+            "Id": "0031q000008SU6qAAG",
+            "Salutation": "Mr.",
+            "FirstName": "JOSETTE",
+            "LastName": "D'aujourd'hui",
+            "Origin_of_member__c": "7",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "2",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "13"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000008SU6lAAG"
+            },
+            "Id": "0031q000008SU6lAAG",
+            "Salutation": "Mr.",
+            "FirstName": "ROBERT",
+            "LastName": "PARTICULIER",
+            "Origin_of_member__c": "7",
+            "Country__c": null,
+            "Phone": null,
+            "Language_new__c": null,
+            "Preferred_Language_new__c": "2",
+            "Interests_new__c": null,
+            "MailingCountryCode": null,
+            "Relations_with_thecamp__c": "8"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
+                "url": "/services/data/v40.0/sobjects/Contact/0031q000007cOUXAA2"
+            },
+            "Id": "0031q000007cOUXAA2",
+            "Salutation": "Mr.",
+            "FirstName": "FulFilled",
+            "LastName": "Super",
+            "Origin_of_member__c": "1",
+            "Country__c": "1",
+            "Phone": "644885533",
+            "Language_new__c": "8;13;19",
+            "Preferred_Language_new__c": "1",
+            "Interests_new__c": "8;1;28;20;27;11;31",
+            "MailingCountryCode": "FR",
+            "Relations_with_thecamp__c": "4;13;14"
+        }
+    ]
+}

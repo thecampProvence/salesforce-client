@@ -1,0 +1,61 @@
+{
+    "totalSize": 5,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v40.0/sobjects/Account/0011q000008K2BBAA0"
+            },
+            "Id": "0011q000008K2BBAA0",
+            "Name": "TEST QUOTE SUITE REFRESH",
+            "Inactive__c": false,
+            "RecordTypeId": "0120Y000000E9BuQAK",
+            "Relations_with_thecamp__c": "2;7"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v40.0/sobjects/Account/0011q000008K1PfAAK"
+            },
+            "Id": "0011q000008K1PfAAK",
+            "Name": "LA MAISON DU QUEBEC",
+            "Inactive__c": false,
+            "RecordTypeId": "0120Y000000E9BuQAK",
+            "Relations_with_thecamp__c": "14"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v40.0/sobjects/Account/0011q00000AurkqAAB"
+            },
+            "Id": "0011q00000AurkqAAB",
+            "Name": "hgkjhgkjhg (TEST PHONE) Household",
+            "Inactive__c": false,
+            "RecordTypeId": "0120Y000000E9BtQAK",
+            "Relations_with_thecamp__c": null
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v40.0/sobjects/Account/0011q00000AusJ5AAJ"
+            },
+            "Id": "0011q00000AusJ5AAJ",
+            "Name": "LE PHOCEEN",
+            "Inactive__c": false,
+            "RecordTypeId": "0120Y000000E9BuQAK",
+            "Relations_with_thecamp__c": "6"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v40.0/sobjects/Account/0011q00000ANsS2AAL"
+            },
+            "Id": "0011q00000ANsS2AAL",
+            "Name": "JOYEUSE (EMMANUELLE) Household",
+            "Inactive__c": false,
+            "RecordTypeId": "0120Y000000E9BtQAK",
+            "Relations_with_thecamp__c": "2"
+        }
+    ]
+}

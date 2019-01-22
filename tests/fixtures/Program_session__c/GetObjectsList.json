@@ -1,0 +1,20 @@
+{
+    "totalSize": 1,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Program_Session__c",
+                "url": "/services/data/v40.0/sobjects/Program_Session__c/a0r1q000000Tbe3AAC"
+            },
+            "Id": "a0r1q000000Tbe3AAC",
+            "Name": "Conférence : l'oeuf ou la poule ?",
+            "Description__c": null,
+            "Session_Id__c": "digitickTicketingIds - 5887111",
+            "Program_Id__c": null,
+            "Start_date__c": "2019-01-29T16:00:00.000+0000",
+            "End_date__c": "2019-01-29T18:00:00.000+0000",
+            "Status__c": "1"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "attributes": {
+        "type": "npe5__Affiliation__c",
+        "url": "/services/data/v40.0/sobjects/npe5__Affiliation__c/a0H1q000001sx0IEAQ"
+    },
+    "Id": "a0H1q000001sx0IEAQ",
+    "IsDeleted": false,
+    "Name": "AF-010959",
+    "RecordTypeId": null,
+    "CreatedDate": "2018-12-06T14:05:10.000+0000",
+    "CreatedById": "0050Y000000ONc0QAG",
+    "LastModifiedDate": "2018-12-06T14:05:10.000+0000",
+    "LastModifiedById": "0050Y000000ONc0QAG",
+    "SystemModstamp": "2018-12-06T14:05:10.000+0000",
+    "LastViewedDate": null,
+    "LastReferencedDate": null,
+    "npe5__Organization__c": "0011q00000ANsR4AAL",
+    "npe5__Contact__c": "0031q000008SViQAAW",
+    "npe5__Description__c": null,
+    "npe5__EndDate__c": null,
+    "npe5__Primary__c": true,
+    "npe5__Role__c": "CEO",
+    "npe5__StartDate__c": null,
+    "npe5__Status__c": "Current",
+    "Contact_Name__c": "YVETTE VIVALDI",
+    "Lead_ecosystem_thecamp__c": false
+}
