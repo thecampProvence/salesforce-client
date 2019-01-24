@@ -103,7 +103,18 @@ middleware-components-lib:
  * Member constant RELATIONSHIP_MAPPING deprecated => use RELATION_WITH_THECAMP constants instead
  * Member update RELATION_WITH_THECAMP handling (isBuyer(), isExpert()...)
  * Member check usage of deprecated constants (SALUTATION, MAILING_COUNTRY_CODES_LIST, SF_TYPE_OFRELATIONSHIP, ...)
- * Member add relation with account (on AccountId)
-Serializer:
- * Model fields beginning with `npe01` do not need `ucfirst`
+Salesforce model:
+ * Model Contact: add relation with account (on AccountId) ?
 
+# Utils
+
+## Trouver des données de référence dans Salesforce
+
+Rdv dans Setup > User Interface > Translation Workbench > Translate
+
+Dans les filters:
+ * Language: english
+ * Setup Component:
+   > Picklist Value (si utilisé dans un seul objet)
+   > Global Value (si sont partagées entre plusieurs objets)
+ * Object: préciser l'objet dans le cas d'un Picklist Value component

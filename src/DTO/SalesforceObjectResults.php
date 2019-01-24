@@ -16,7 +16,8 @@ class SalesforceObjectResults
     private function __construct(int $totalSize, bool $done, array $records)
     {
         $this->totalSize = $totalSize;
-        $this->done = $done;
+        $this->done      = $done;
+
         foreach ($records as $record) {
             $this->addRecord($record);
         }
@@ -27,11 +28,12 @@ class SalesforceObjectResults
         $this->records[] = $record;
     }
 
-    public static function createFromArray(array $data)
+    public static function createFromArray(array $data, $modelClassName = null)
     {
         $records = [];
+
         foreach ($data['records'] as $record) {
-            $records[] = SalesforceObject::createFromArray($record);
+            $records[] = SalesforceObject::createFromArray($record, $modelClassName);
         }
 
         return new self(

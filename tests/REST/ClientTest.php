@@ -4,15 +4,11 @@ namespace Tests\WakeOnWeb\SalesforceClient\REST;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
-use WakeOnWeb\SalesforceClient\REST\Client as SUT;
-use WakeOnWeb\SalesforceClient\REST\Gateway;
-use WakeOnWeb\SalesforceClient\REST\GrantType\StrategyInterface;
-use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectCreation;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObject;
+use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectCreation;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectResults;
 
-class ClientTest extends TestCase
+class ClientTest extends AbstractClientTest
 {
     public function test_get_available_resources()
     {
@@ -99,7 +95,7 @@ class ClientTest extends TestCase
     {
         $sut = $this->createSUT(
             new Request('DELETE', 'https://domain.tld', ['Authorization' => 'Bearer access_token']),
-            new Response(200, [], '{"foo": "bar"}')
+            new Response(204)
         );
         $this->assertNull($sut->deleteObject('foo', 1234));
     }
@@ -151,34 +147,5 @@ class ClientTest extends TestCase
             new Response(200, [], '[]')
         );
         $this->assertEquals($sut->explainSOQL('MY QUERY'), []);
-    }
-
-    private function createSUT(Request $requestExpected = null, Response $httpClientResponse)
-    {
-        $gateway = $this->createMock(Gateway::class);
-        $gateway->expects($this->once())
-            ->method('getServiceDataUrl')
-            ->willReturn('https://domain.tld');
-
-        $grantTypeStrategy = $this->createMock(StrategyInterface::class);
-        $httpClient = $this->createMock(\GuzzleHttp\Client::class);
-
-        if ($requestExpected) {
-            $httpClient->expects($this->once())
-                ->method('send')
-                ->with($requestExpected)
-                ->willReturn($httpClientResponse);
-        } else {
-            $httpClient->expects($this->once())
-                ->method('send')
-                ->willReturn($httpClientResponse);
-        }
-
-        $grantTypeStrategy
-            ->expects($this->once())
-            ->method('buildAccessToken')
-            ->willReturn('access_token');
-
-        return new SUT($gateway, $grantTypeStrategy, $httpClient);
     }
 }

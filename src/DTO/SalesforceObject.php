@@ -2,6 +2,8 @@
 
 namespace WakeOnWeb\SalesforceClient\DTO;
 
+use Symfony\Component\Serializer\Serializer;
+
 /**
  * SalesforceObject.
  *
@@ -10,20 +12,30 @@ namespace WakeOnWeb\SalesforceClient\DTO;
 class SalesforceObject
 {
     private $attributes = [];
-    private $fields = [];
+    private $fields     = [];
+    private $object;
 
-    private function __construct(array $attributes, array $fields)
+    private function __construct(array $attributes, array $fields, string $modelClassName = null)
     {
         $this->attributes = $attributes;
-        $this->fields = $fields;
+        $this->fields     = $fields;
+
+        if (false === is_null($modelClassName)) {
+            $modelNamespace      = 'WakeOnWeb\SalesforceClient\Model\\'.$modelClassName;
+            $normalizerNamespace = 'WakeOnWeb\SalesforceClient\Normalizer\\'.$modelClassName.'Normalizer';
+            $serializer          = new Serializer([
+                new $normalizerNamespace()
+            ]);
+            $this->object = $serializer->denormalize($fields, $modelNamespace);
+        }
     }
 
-    public static function createFromArray(array $data)
+    public static function createFromArray(array $data, string $modelClassName = null)
     {
         $attributes = array_key_exists('attributes', $data) ? (array) $data['attributes'] : [];
         unset($data['attributes']);
 
-        return new self($attributes, $data);
+        return new self($attributes, $data, $modelClassName);
     }
 
     public function getType()
@@ -64,5 +76,10 @@ class SalesforceObject
     public function hasField($key)
     {
         return array_key_exists($key, $this->fields);
+    }
+
+    public function getObject()
+    {
+        return $this->object;
     }
 }
