@@ -13,6 +13,11 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
     CONST ISO8601_EXTENDED = 'Y-m-d\TH:i:s.vO';
 
     /**
+     * @var \ReflectionClass
+     */
+    private $objectInfo;
+
+    /**
      * {@inheritdoc}
      */
     public function normalize($object, $format = null, array $context = array())
@@ -37,6 +42,12 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
                     if ($propertyValue instanceof \DateTime) {
                         // $propertyValue = $propertyValue->format(\DateTime::ISO8601);
                         $propertyValue = $propertyValue->format(static::ISO8601_EXTENDED);
+                    } else {
+                        throw new \UnexpectedValueException(sprintf(
+                            'Handler of property type "%s" is not implemented (property name: "%s")',
+                            get_class($propertyValue),
+                            $propertyName
+                        ));
                     }
 
                     break;
@@ -63,20 +74,12 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
         $data             = array_change_key_case($data, CASE_LOWER);
 
         /**
-         * @internal full list of model properties that are of type array
+         * @internal list of object properties that are of type array
          */
-        $arrayModelProperties = [
-            'language_new__c',
-            'nationality_new__c',
-            'interests_new__c',
-            'relations_with_thecamp__c',
-            'type_of_relationship_new__c',
-        ];
+        $objectArrayProperties = $this->getObjectArrayProperties($object);
 
         foreach ($objectProperties as $propertyName) {
             if (false === isset($data[$propertyName]) || true === is_null($data[$propertyName])) {
-                // var_dump($propertyName. ' Not found');
-
                 continue;
             }
 
@@ -90,7 +93,7 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
             $setter = 'set'.ucfirst($propertyName);
             $adder  = 'add'.ucfirst($propertyName);
 
-            if (true === in_array($propertyName, $arrayModelProperties)) {
+            if (true === in_array($propertyName, $objectArrayProperties)) {
                 $extractedValuesList = array_filter(explode(';', $value));
                 $existingValues      = $object->$getter();
 
@@ -123,15 +126,33 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
      */
     protected function getObjectProperties($object)
     {
-        $objectMethods = get_class_methods($object);
-        $objectSetters = array_filter($objectMethods, function ($methodName) {
-            return 0 === strpos($methodName, 'set');
-        });
-        $objectProperties = array_map(function ($setterName) {
-            // return lcfirst(preg_replace('/^set/i', '', $setterName));
-            return strtolower(preg_replace('/^set/i', '', $setterName));
-        }, $objectSetters);
+        if (!isset($this->objectInfo)) {
+            $this->objectInfo = new \ReflectionClass($object);
+        }
 
-        return $objectProperties;
+        return array_keys(
+            array_change_key_case($this->objectInfo->getDefaultProperties(), CASE_LOWER)
+        );
+    }
+
+    /**
+     * Get object properties that are of type array
+     *
+     * @param Object $object
+     *
+     * @return array
+     */
+    protected function getObjectArrayProperties($object)
+    {
+        if (!isset($this->objectInfo)) {
+            $this->objectInfo = new \ReflectionClass($object);
+        }
+
+        $properties      = $this->objectInfo->getDefaultProperties();
+        $arrayProperties = array_filter($properties, function ($propertyValue) {
+            return true === is_array($propertyValue);
+        });
+
+        return array_keys($arrayProperties);
     }
 }
