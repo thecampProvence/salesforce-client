@@ -9,8 +9,9 @@ namespace WakeOnWeb\SalesforceClient\Model;
  */
 class Program_session__c
 {
-    use \WakeOnWeb\SalesforceClient\Model\Traits\ConstantMethods;
-    use \WakeOnWeb\SalesforceClient\Model\Traits\RecordTypeId;
+    use Traits\ConstantMethods;
+    use Traits\IsDeleted;
+    use Traits\RecordTypeId;
 
     CONST TABLE_NAME              = 'Program_Session__c';
     CONST RECORD_TYPE_ID_ACTIVITY = '0120Y000000E9C5QAK';

@@ -9,7 +9,8 @@ namespace WakeOnWeb\SalesforceClient\Model;
  */
 class Relationship_Program_Session__c
 {
-    use \WakeOnWeb\SalesforceClient\Model\Traits\ConstantMethods;
+    use Traits\ConstantMethods;
+    use Traits\IsDeleted;
 
     CONST TABLE_NAME = 'Relationship_Program_Session__c';
 

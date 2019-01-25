@@ -9,8 +9,9 @@ namespace WakeOnWeb\SalesforceClient\Model;
  */
 class Npe5__Affiliation__c
 {
-    use \WakeOnWeb\SalesforceClient\Model\Traits\ConstantMethods;
-    // use \WakeOnWeb\SalesforceClient\Model\Traits\RecordTypeId;
+    use Traits\ConstantMethods;
+    use Traits\IsDeleted;
+    // use Traits\RecordTypeId;
 
     CONST TABLE_NAME     = 'npe5__Affiliation__c';
     // CONST RECORD_TYPE_ID = '0120Y000000E9C7QAK';

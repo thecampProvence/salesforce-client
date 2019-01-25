@@ -9,8 +9,9 @@ namespace WakeOnWeb\SalesforceClient\Model;
  */
 class On_site_presence__c
 {
-    // use \WakeOnWeb\SalesforceClient\Model\Traits\ConstantMethods;
-    // use \WakeOnWeb\SalesforceClient\Model\Traits\RecordTypeId;
+    // use Traits\ConstantMethods;
+    use Traits\IsDeleted;
+    // use Traits\RecordTypeId;
 
     CONST TABLE_NAME = 'On_site_presence__c';
 

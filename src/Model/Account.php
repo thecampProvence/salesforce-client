@@ -9,9 +9,10 @@ namespace WakeOnWeb\SalesforceClient\Model;
  */
 class Account
 {
-    use \WakeOnWeb\SalesforceClient\Model\Traits\ConstantMethods;
-    use \WakeOnWeb\SalesforceClient\Model\Traits\RecordTypeId;
-    use \WakeOnWeb\SalesforceClient\Model\Traits\RelationsWithThecamp;
+    use Traits\ConstantMethods;
+    use Traits\IsDeleted;
+    use Traits\RecordTypeId;
+    use Traits\RelationsWithThecamp;
 
     CONST TABLE_NAME                  = 'Account';
     CONST RECORD_TYPE_ID_HOUSEHOLD    = '0120Y000000E9BtQAK';

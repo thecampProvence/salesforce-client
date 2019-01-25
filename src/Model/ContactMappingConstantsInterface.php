@@ -25,7 +25,7 @@ interface ContactMappingConstantsInterface
 
     /**
      * @var string Salesforce preferred phone mapping
-     * @deprecated
+     * @deprecated will be migrated to WebPortal model
      */
     // CONST PREFERRED_PHONE_WORK = 'Work';
     // CONST PREFERRED_PHONE_HOME = 'Home';
