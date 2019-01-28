@@ -3,11 +3,11 @@
 namespace WakeOnWeb\SalesforceClient\Model;
 
 /**
- * Class Program_session__c
+ * Class Program_Session__c
  *
  * Represent a Salesforce object
  */
-class Program_session__c
+class Program_Session__c
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

@@ -4,9 +4,13 @@ namespace Tests\WakeOnWeb\SalesforceClient\REST;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Serializer;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObject;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectCreation;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectResults;
+use WakeOnWeb\SalesforceClient\Model\Account;
+use WakeOnWeb\SalesforceClient\Normalizer\AccountNormalizer;
 use WakeOnWeb\SalesforceClient\Query\QueryBuilder;
 
 class AccountClientTest extends AbstractClientTest
@@ -100,7 +104,7 @@ class AccountClientTest extends AbstractClientTest
             ->select(['Id', 'Name', 'Inactive__c', 'RecordTypeId', 'Relations_with_thecamp__c'])
             ->where('Inactive__c = false')
             ;
-        $json = $this->getNormalizedAccountsList();
+        $json = $this->getNormalizedAccountList();
         $responseData = json_decode($json, true);
 
         $sut = $this->createSUT(

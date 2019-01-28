@@ -65,6 +65,16 @@ abstract class AbstractClientTest extends TestCase
      */
     protected function getNormalizedAccount()
     {
+        return $this->getNormalizedModelObject('Account');
+    }
+
+    /**
+     * Get normalized Account list from json file
+     *
+     * @return string json
+     */
+    protected function getNormalizedAccountList()
+    {
         return $this->getNormalizedModelObjectsList('Account');
     }
 
@@ -75,11 +85,11 @@ abstract class AbstractClientTest extends TestCase
      */
     protected function getNormalizedContact()
     {
-        return $this->getNormalizedModelObjectsList('Contact');
+        return $this->getNormalizedModelObject('Contact');
     }
 
     /**
-     * Get normalized Npe5__Affiliation__c from json file
+     * Get normalized Npe5__Affiliation__c list from json file
      *
      * @return string json
      */
