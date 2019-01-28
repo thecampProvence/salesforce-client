@@ -27,6 +27,11 @@ class Npe5__Affiliation__c
     /**
      * @var string
      */
+    protected $name;
+
+    /**
+     * @var string
+     */
     protected $npe5__Organization__c;
 
     /**
@@ -65,6 +70,26 @@ class Npe5__Affiliation__c
     public function setId($id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return self
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
