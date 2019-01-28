@@ -56,6 +56,15 @@ class Account
      */
     protected $inactive__c = false;
 
+
+    /**
+     * __ construct
+     */
+    public function __construct()
+    {
+        $this->recordTypeId = self::RECORD_TYPE_ID_ORGANIZATION;
+    }
+
     /**
      * @return string
      */
