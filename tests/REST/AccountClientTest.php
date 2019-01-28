@@ -4,14 +4,9 @@ namespace Tests\WakeOnWeb\SalesforceClient\REST;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Serializer;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObject;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectCreation;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectResults;
-use WakeOnWeb\SalesforceClient\Model\Account;
-use WakeOnWeb\SalesforceClient\Normalizer\AccountNormalizer;
 use WakeOnWeb\SalesforceClient\Query\QueryBuilder;
 
 class AccountClientTest extends AbstractClientTest
@@ -117,52 +112,4 @@ class AccountClientTest extends AbstractClientTest
         $this->assertEquals($results, SalesforceObjectResults::createFromArray($responseData, 'Account'));
     }
 
-    /**
-     * Get normalized Accounts list from json file
-     *
-     * @return string json
-     */
-    private function getNormalizedAccountsList()
-    {
-        $finder = new Finder();
-        $finder->files()->in(__DIR__ . '/../fixtures/Account')->name('GetObjectsList.json');
-        $iterator = $finder->getIterator();
-        $iterator->rewind();
-        $file = $iterator->current();
-
-        return $file->getContents();
-    }
-
-    /**
-     * Get normalized Account from json file
-     *
-     * @return string json
-     */
-    private function getNormalizedAccount()
-    {
-        $finder = new Finder();
-        $finder->files()->in(__DIR__ . '/../fixtures/Account')->name('GetObject.json');
-        $iterator = $finder->getIterator();
-        $iterator->rewind();
-        $file = $iterator->current();
-
-        return $file->getContents();
-    }
-
-    /**
-     * Get Account model object from json file
-     *
-     * @return Account
-     */
-    private function getAccount(): Account
-    {
-        $json       = $this->getNormalizedAccount();
-        $serializer = new Serializer([
-            new AccountNormalizer()
-        ], [
-            new JsonEncoder()
-        ]);
-
-        return $serializer->deserialize($json, Account::class, 'json');
-    }
 }

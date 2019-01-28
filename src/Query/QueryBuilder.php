@@ -38,6 +38,7 @@ class QueryBuilder
      * Create a new query builder.
      *
      * @param string $objectNamespace
+     * @param bool $includeSoftDeleted
      */
     public function __construct(string $objectNamespace, bool $includeSoftDeleted = self::WITHOUT_SOFT_DELETED)
     {
