@@ -7,19 +7,13 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class Relationship_Account_Program__c
+class Relationship_Account_Program__c implements Relationship_Account_Program__cMappingConstantsInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;
     use Traits\TypeOfRelationship;
 
     CONST TABLE_NAME = 'Relationship_Account_Program__c';
-
-    /**
-     * @var int Salesforce type of relationship mapping
-     */
-    CONST TYPE_OF_RELATIONSHIP_BUYER    = 1;
-    // CONST TYPE_OF_RELATIONSHIP_BUSINESS = 2; // to remove does not exists in SF
 
     /**
      * @var string
