@@ -31,7 +31,7 @@ interface ClientInterface
 
     public function getObject(string $object, string $id, array $fields = []): DTO\SalesforceObject;
 
-    public function search(QueryBuilder $queryBuilder): DTO\SalesforceObjectResults;
+    public function search(Query\QueryBuilder $queryBuilder): DTO\SalesforceObjectResults;
 
     public function searchSOQL(string $query, bool $all = false): DTO\SalesforceObjectResults;
 
