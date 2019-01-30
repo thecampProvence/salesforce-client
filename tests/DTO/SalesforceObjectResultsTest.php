@@ -18,8 +18,8 @@ class SalesforceObjectResultsTest extends TestCase
     {
         $sut = SUT::createFromArray([
             'totalSize' => 0,
-            'done' => true,
-            'records' => []
+            'done'      => true,
+            'records'   => []
         ]);
 
         $this->assertEquals($sut->getTotalSize(), 0);
@@ -31,20 +31,22 @@ class SalesforceObjectResultsTest extends TestCase
     {
         $object1Data = [
             'attributes' => [
+                'type' => 'Account'
             ],
             'Id' => 1337,
         ];
 
         $object2Data = [
             'attributes' => [
+                'type' => 'Account'
             ],
             'Id' => 42,
         ];
 
         $sut = SUT::createFromArray([
             'totalSize' => 2,
-            'done' => false,
-            'records' => [$object1Data, $object2Data]
+            'done'      => false,
+            'records'   => [$object1Data, $object2Data]
         ]);
 
         $this->assertEquals($sut->getTotalSize(), 2);

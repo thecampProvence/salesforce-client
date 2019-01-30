@@ -220,8 +220,7 @@ class Client implements ClientInterface
         $responseData = $this->doAuthenticatedRequest($request);
 
         return DTO\SalesforceObject::createFromArray(
-            $responseData,
-            $endpoint
+            $responseData
         );
     }
 
@@ -258,8 +257,7 @@ class Client implements ClientInterface
         $responseData = $this->doAuthenticatedRequest($request);
 
         return DTO\SalesforceObjectResults::createFromArray(
-            $responseData,
-            $queryBuilder->getModelClassName()
+            $responseData
         );
     }
 

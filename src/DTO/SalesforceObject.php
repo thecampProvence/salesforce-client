@@ -15,12 +15,13 @@ class SalesforceObject
     private $fields     = [];
     private $object;
 
-    private function __construct(array $attributes, array $fields, string $modelClassName = null)
+    private function __construct(array $attributes, array $fields)
     {
         $this->attributes = $attributes;
         $this->fields     = $fields;
 
-        if (false === is_null($modelClassName)) {
+        if (true === isset($this->attributes['type'])) {
+            $modelClassName      = ucfirst($this->attributes['type']);
             $modelNamespace      = 'WakeOnWeb\SalesforceClient\Model\\'.$modelClassName;
             $normalizerNamespace = 'WakeOnWeb\SalesforceClient\Normalizer\\'.$modelClassName.'Normalizer';
             $serializer          = new Serializer([
@@ -30,12 +31,12 @@ class SalesforceObject
         }
     }
 
-    public static function createFromArray(array $data, string $modelClassName = null)
+    public static function createFromArray(array $data)
     {
         $attributes = array_key_exists('attributes', $data) ? (array) $data['attributes'] : [];
         unset($data['attributes']);
 
-        return new self($attributes, $data, $modelClassName);
+        return new self($attributes, $data);
     }
 
     public function getType()

@@ -84,8 +84,7 @@ class ModelRepositoryTest extends AbstractClientTest
         ];
 
         $salesforceObjectResults = SalesforceObjectResults::createFromArray(
-            $salesforceResponse,
-            'Npe5__Affiliation__c'
+            $salesforceResponse
         );
 
         $salesforceClientMock
@@ -108,8 +107,7 @@ class ModelRepositoryTest extends AbstractClientTest
         $salesforceResponse   = json_decode($json, true);
 
         $salesforceObjectResults = SalesforceObjectResults::createFromArray(
-            $salesforceResponse,
-            'Npe5__Affiliation__c'
+            $salesforceResponse
         );
 
         $salesforceClientMock
@@ -137,8 +135,7 @@ class ModelRepositoryTest extends AbstractClientTest
         ];
 
         $salesforceObjectResults = SalesforceObjectResults::createFromArray(
-            $salesforceResponse,
-            'Npe5__Affiliation__c'
+            $salesforceResponse
         );
 
         $salesforceClientMock

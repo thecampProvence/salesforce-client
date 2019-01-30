@@ -35,16 +35,16 @@ class SalesforceObjectTest extends TestCase
         $sut = SUT::createFromArray([
             'attributes' => [
                 'url' => 'https://domain.tld',
-                'type' => 'Foo',
+                'type' => 'Account',
             ],
             'Id' => 1337
         ]);
 
-        $this->assertEquals($sut->getType(), 'Foo');
+        $this->assertEquals($sut->getType(), 'Account');
         $this->assertEquals($sut->getUrl(), 'https://domain.tld');
         $this->assertEquals($sut->getAttributes(), [
             'url' => 'https://domain.tld',
-            'type' => 'Foo',
+            'type' => 'Account',
         ]);
 
         $this->assertEquals($sut->getAttribute('url'), 'https://domain.tld');

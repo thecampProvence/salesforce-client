@@ -28,12 +28,12 @@ class SalesforceObjectResults
         $this->records[] = $record;
     }
 
-    public static function createFromArray(array $data, $modelClassName = null)
+    public static function createFromArray(array $data)
     {
         $records = [];
 
         foreach ($data['records'] as $record) {
-            $records[] = SalesforceObject::createFromArray($record, $modelClassName);
+            $records[] = SalesforceObject::createFromArray($record);
         }
 
         return new self(

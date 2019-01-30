@@ -92,7 +92,7 @@ class AccountClientTest extends AbstractClientTest
             new Response(200, [], $json)
         );
         $result           = $sut->getById('Account', '0011q000008K2BBAA0');
-        $salesforceObject = SalesforceObject::createFromArray($responseData, 'Account');
+        $salesforceObject = SalesforceObject::createFromArray($responseData);
         $this->assertEquals($result, $salesforceObject);
         $this->assertEquals($result->getObject(), $account);
     }
@@ -113,7 +113,7 @@ class AccountClientTest extends AbstractClientTest
         );
         $results = $sut->search($queryBuilder);
 
-        $this->assertEquals($results, SalesforceObjectResults::createFromArray($responseData, 'Account'));
+        $this->assertEquals($results, SalesforceObjectResults::createFromArray($responseData));
     }
 
 }
