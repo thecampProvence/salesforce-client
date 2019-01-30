@@ -13,9 +13,9 @@ trait IsDeleted
     protected $isDeleted;
 
     /**
-     * @return bool
+     * @return bool | null
      */
-    public function getIsDeleted(): bool
+    public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
     }

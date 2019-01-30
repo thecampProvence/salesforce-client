@@ -232,7 +232,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getFirstName(): ?string
+    public function getFirstName(): string
     {
         return $this->firstName;
     }
@@ -272,7 +272,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getNickname__c(): string
+    public function getNickname__c(): ?string
     {
         return $this->nickname__c;
     }
@@ -475,12 +475,30 @@ class Contact implements ContactMappingConstantsInterface
      * @param string $npe01__Preferred_Email__c
      *
      * @return self
+     *
+     * @throws InvalidArgumentException
      */
     public function setNpe01__Preferred_Email__c(string $npe01__Preferred_Email__c): self
     {
+        if (false === in_array($npe01__Preferred_Email__c, self::getNpe01__Preferred_Email__cList())) {
+            throw new \InvalidArgumentException(
+                sprintf('Unknown npe01__Preferred_Email__c "%s"', $npe01__Preferred_Email__c)
+            );
+        }
+
         $this->npe01__Preferred_Email__c = $npe01__Preferred_Email__c;
 
         return $this;
+    }
+
+    /**
+     * Get list of npe01__Preferred_Email__c
+     *
+     * @return array
+     */
+    public static function getNpe01__Preferred_Email__cList(): array
+    {
+        return static::getClassConstantsFromPrefix('PREFERRED_EMAIL');
     }
 
     /**

@@ -94,7 +94,7 @@ class QueryBuilder
      */
     public function select(array $fieldsNames = ['id'])
     {
-        // $fieldsNames = array_map('strtolower', $fieldsNames);
+        $fieldsNames = array_map('strtolower', $fieldsNames);
 
         foreach ($fieldsNames as $fieldName) {
             /**

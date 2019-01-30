@@ -15,9 +15,9 @@ trait RecordTypeId
     protected $recordTypeId;
 
     /**
-     * @return string
+     * @return string | null
      */
-    public function getRecordTypeId(): string
+    public function getRecordTypeId(): ?string
     {
         return $this->recordTypeId;
     }

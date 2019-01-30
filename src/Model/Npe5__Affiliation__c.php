@@ -193,7 +193,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return bool
      */
-    public function getNpe5__Primary__c(): bool
+    public function getNpe5__Primary__c(): ?bool
     {
         return $this->npe5__Primary__c;
     }
