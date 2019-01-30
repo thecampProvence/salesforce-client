@@ -44,7 +44,7 @@ class QueryBuilder
     {
         $this->from($objectNamespace);
 
-        $this->query['select']    = ['Id'];
+        $this->query['select']    = ['id'];
         $this->includeSoftDeleted = $includeSoftDeleted;
     }
 
