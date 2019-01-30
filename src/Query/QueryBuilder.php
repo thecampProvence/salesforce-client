@@ -43,6 +43,8 @@ class QueryBuilder
     public function __construct(string $objectNamespace, bool $includeSoftDeleted = self::WITHOUT_SOFT_DELETED)
     {
         $this->from($objectNamespace);
+
+        $this->query['select']    = ['Id'];
         $this->includeSoftDeleted = $includeSoftDeleted;
     }
 
