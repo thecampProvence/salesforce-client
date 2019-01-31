@@ -174,7 +174,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -206,8 +206,12 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @throws InvalidArgumentException
      */
-    public function setSalutation(string $salutation): self
+    public function setSalutation(string $salutation = null): self
     {
+        if (is_null($salutation)) {
+            return $this;
+        }
+
         if (false === in_array($salutation, self::getSalutationList())) {
             throw new \InvalidArgumentException(
                 sprintf('Unknown Salutation "%s"', $salutation)
@@ -232,7 +236,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -252,7 +256,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -282,7 +286,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setNickname__c(string $nickname__c): self
+    public function setNickname__c(string $nickname__c = null): self
     {
         $this->nickname__c = $nickname__c;
 
@@ -362,8 +366,12 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @throws InvalidArgumentException
      */
-    public function setCountry__c(string $country__c): self
+    public function setCountry__c(string $country__c = null): self
     {
+        if (is_null($country__c)) {
+            return $this;
+        }
+
         if (false === in_array($country__c, self::getCountry__cList())) {
             throw new \InvalidArgumentException(
                 sprintf('Unknown Country__c "%s"', $country__c)
@@ -398,7 +406,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setPhone(string $phone): self
+    public function setPhone(string $phone = null): self
     {
         $this->phone = $phone;
 
@@ -420,8 +428,12 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @throws InvalidArgumentException
      */
-    public function setCountryWork__c(string $countryWork__c): self
+    public function setCountryWork__c(string $countryWork__c = null): self
     {
+        if (is_null($countryWork__c)) {
+            return $this;
+        }
+
         if (false === in_array($countryWork__c, self::getCountryWork__cList())) {
             throw new \InvalidArgumentException(
                 sprintf('Unknown CountryWork__c "%s"', $countryWork__c)
@@ -456,7 +468,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setNpe01__WorkPhone__c(string $npe01__WorkPhone__c): self
+    public function setNpe01__WorkPhone__c(string $npe01__WorkPhone__c = null): self
     {
         $this->npe01__WorkPhone__c = $npe01__WorkPhone__c;
 
@@ -574,7 +586,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setPersonal_Website__c(string $personal_Website__c): self
+    public function setPersonal_Website__c(string $personal_Website__c = null): self
     {
         $this->personal_Website__c = $personal_Website__c;
 
@@ -594,7 +606,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setTwitter_profile__c(string $twitter_profile__c): self
+    public function setTwitter_profile__c(string $twitter_profile__c = null): self
     {
         $this->twitter_profile__c = $twitter_profile__c;
 
@@ -614,7 +626,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setLinkedin_profile__c(string $linkedin_profile__c): self
+    public function setLinkedin_profile__c(string $linkedin_profile__c = null): self
     {
         $this->linkedin_profile__c = $linkedin_profile__c;
 
@@ -634,7 +646,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setSkype_profile__c(string $skype_profile__c): self
+    public function setSkype_profile__c(string $skype_profile__c = null): self
     {
         $this->skype_profile__c = $skype_profile__c;
 
@@ -875,7 +887,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setMailingStreet(string $mailingStreet): self
+    public function setMailingStreet(string $mailingStreet = null): self
     {
         $this->mailingStreet = $mailingStreet;
 
@@ -895,7 +907,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setMailingCity(string $mailingCity): self
+    public function setMailingCity(string $mailingCity = null): self
     {
         $this->mailingCity = $mailingCity;
 
@@ -915,7 +927,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @return self
      */
-    public function setMailingPostalCode(string $mailingPostalCode): self
+    public function setMailingPostalCode(string $mailingPostalCode = null): self
     {
         $this->mailingPostalCode = $mailingPostalCode;
 
@@ -937,8 +949,12 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @throws InvalidArgumentException
      */
-    public function setMailingCountryCode(string $mailingCountryCode): self
+    public function setMailingCountryCode(string $mailingCountryCode = null): self
     {
+        if (is_null($mailingCountryCode)) {
+            return $this;
+        }
+
         $mailingCountryCode = strtoupper($mailingCountryCode);
 
         if (false === in_array($mailingCountryCode, self::getMailingCountryCodeList())) {

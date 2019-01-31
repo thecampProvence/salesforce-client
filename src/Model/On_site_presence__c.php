@@ -43,7 +43,7 @@ class On_site_presence__c
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }

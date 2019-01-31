@@ -46,7 +46,7 @@ class Account implements AccountMappingConstantsInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -66,7 +66,7 @@ class Account implements AccountMappingConstantsInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

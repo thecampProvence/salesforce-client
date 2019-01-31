@@ -25,8 +25,6 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
         $objectProperties = $this->getObjectProperties($object);
         $data             = [];
 
-        // var_dump('-------------- normalize', get_class($object));
-
         foreach ($objectProperties as $propertyName) {
             $getter        = 'get'.ucfirst($propertyName);
             $propertyValue = $object->$getter();
@@ -79,8 +77,6 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
          * @internal list of object properties that are of type array
          */
         $objectArrayProperties = $this->getObjectArrayProperties($object);
-
-        // var_dump('-------------- denormalize', $class, $data, $objectProperties);
 
         foreach ($objectProperties as $propertyName) {
             if (false === isset($data[$propertyName]) || true === is_null($data[$propertyName])) {

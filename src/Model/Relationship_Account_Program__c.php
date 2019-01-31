@@ -43,7 +43,7 @@ class Relationship_Account_Program__c implements Relationship_Account_Program__c
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }

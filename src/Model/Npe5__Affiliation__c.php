@@ -55,7 +55,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -75,7 +75,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -95,7 +95,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return string
      */
-    public function getNpe5__Organization__c(): string
+    public function getNpe5__Organization__c(): ?string
     {
         return $this->npe5__Organization__c;
     }
@@ -115,7 +115,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return string
      */
-    public function getNpe5__Contact__c(): string
+    public function getNpe5__Contact__c(): ?string
     {
         return $this->npe5__Contact__c;
     }
@@ -135,7 +135,7 @@ class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterf
     /**
      * @return string
      */
-    public function getNpe5__Status__c(): string
+    public function getNpe5__Status__c(): ?string
     {
         return $this->npe5__Status__c;
     }

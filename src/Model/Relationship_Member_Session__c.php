@@ -49,7 +49,7 @@ class Relationship_Member_Session__c implements Relationship_Member_Session__cMa
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }

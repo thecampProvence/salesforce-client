@@ -49,7 +49,7 @@ class Relationship_Member_Program__c implements Relationship_Member_Program__cMa
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
