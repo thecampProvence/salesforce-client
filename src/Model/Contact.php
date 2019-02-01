@@ -209,6 +209,8 @@ class Contact implements ContactMappingConstantsInterface
     public function setSalutation(string $salutation = null): self
     {
         if (is_null($salutation)) {
+            $this->salutation = null;
+
             return $this;
         }
 
@@ -369,6 +371,8 @@ class Contact implements ContactMappingConstantsInterface
     public function setCountry__c(string $country__c = null): self
     {
         if (is_null($country__c)) {
+            $this->country__c = null;
+
             return $this;
         }
 
@@ -431,6 +435,8 @@ class Contact implements ContactMappingConstantsInterface
     public function setCountryWork__c(string $countryWork__c = null): self
     {
         if (is_null($countryWork__c)) {
+            $this->countryWork__c = null;
+
             return $this;
         }
 
@@ -717,7 +723,7 @@ class Contact implements ContactMappingConstantsInterface
     /**
      * @return string
      */
-    public function getPreferred_Language_new__c(): string
+    public function getPreferred_Language_new__c(): ?int
     {
         return $this->preferred_Language_new__c;
     }
@@ -729,7 +735,7 @@ class Contact implements ContactMappingConstantsInterface
      *
      * @throws InvalidArgumentException
      */
-    public function setPreferred_Language_new__c(string $preferred_Language_new__c): self
+    public function setPreferred_Language_new__c(int $preferred_Language_new__c): self
     {
         if (false === in_array($preferred_Language_new__c, self::getPreferred_Language_new__cList())) {
             throw new \InvalidArgumentException(
@@ -952,6 +958,8 @@ class Contact implements ContactMappingConstantsInterface
     public function setMailingCountryCode(string $mailingCountryCode = null): self
     {
         if (is_null($mailingCountryCode)) {
+            $this->mailingCountryCode = null;
+
             return $this;
         }
 
