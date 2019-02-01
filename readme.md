@@ -97,14 +97,16 @@ $client->describeObjectMetadata('Account');
 
 Migrate unit tests (ex: SOQLQueryBuilder)
 
-middleware-components-lib:
+### middleware-components-lib
+
+Nice to have:
  * Reorganize/rename salesforce/model/ classes
- * migrate EventData constants prefixed with `SF_` (Member special case not prefixed)
- * Member constant RELATIONSHIP_MAPPING deprecated => use RELATION_WITH_THECAMP constants instead
+ * Update unit tests
+ * Model Contact: add relation with account (on AccountId) ?
+
+Must have:
  * Member update RELATION_WITH_THECAMP handling (isBuyer(), isExpert()...)
  * Member check usage of deprecated constants (SALUTATION, MAILING_COUNTRY_CODES_LIST, SF_TYPE_OFRELATIONSHIP, ...)
-Salesforce model:
- * Model Contact: add relation with account (on AccountId) ?
 
 # Utils
 

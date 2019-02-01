@@ -20,6 +20,7 @@ class SalesforceObjectTest extends TestCase
         $this->assertNull($sut->getType());
         $this->assertNull($sut->getUrl());
         $this->assertEquals($sut->getAttributes(), []);
+        $this->assertEquals($sut->getObject(), null);
 
         $this->assertNull($sut->getAttribute('url'));
         $this->assertFalse($sut->hasAttribute('url'));

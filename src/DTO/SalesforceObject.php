@@ -28,6 +28,8 @@ class SalesforceObject
                 new $normalizerNamespace()
             ]);
             $this->object = $serializer->denormalize($fields, $modelNamespace);
+        } else if (false === empty($fields)) {
+            throw new \UnexpectedValueException('Cannot hydrate object, attributes data are missing from Salesforce API response.');
         }
     }
 

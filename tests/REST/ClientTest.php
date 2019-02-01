@@ -103,7 +103,10 @@ class ClientTest extends AbstractClientTest
     public function test_get_object()
     {
         $response = [
-            'attributes' => [],
+            'attributes' => [
+                'type' => 'Account',
+                'url' => ''
+            ],
             'Id'=> 1337
         ];
 
@@ -114,7 +117,10 @@ class ClientTest extends AbstractClientTest
         $this->assertEquals($sut->getObject('foo', 1234), SalesforceObject::createFromArray($response));
 
         $response = [
-            'attributes' => [],
+            'attributes' => [
+                'type' => 'Account',
+                'url' => ''
+            ],
             'Id'=> 1337
         ];
 
