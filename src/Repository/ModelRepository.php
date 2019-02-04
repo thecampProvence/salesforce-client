@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use WakeOnWeb\SalesforceClient\ClientInterface;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObject;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectResults;
+use WakeOnWeb\SalesforceClient\Exception\SalesforceClientException;
 use WakeOnWeb\SalesforceClient\Model\Account;
 use WakeOnWeb\SalesforceClient\Model\Contact;
 use WakeOnWeb\SalesforceClient\Model\Npe5__Affiliation__c;
@@ -48,10 +49,27 @@ class ModelRepository
      * @param string $id id
      *
      * @return Contact | null
+     *
+     * @throws SalesforceClientException
      */
     public function findRequiredContact(string $id): ?Contact
     {
-        $salesforceObject = $this->_salesforceClient->getById(Contact::TABLE_NAME, $id);
+        try {
+            $salesforceObject = $this->_salesforceClient->getById(Contact::TABLE_NAME, $id);
+        } catch (SalesforceClientException $e) {
+            /**
+             * @internal in case of a 404 exception
+             */
+            $previousException = $e->getPrevious();
+
+            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
+                $previousException->getResponse()->getStatusCode() == 404
+            ) {
+                return null;
+            }
+
+            throw $e;
+        }
 
         return $salesforceObject->getObject();
     }
@@ -60,10 +78,27 @@ class ModelRepository
      * @param string $id id
      *
      * @return Npe5__Affiliation__c | null
+     *
+     * @throws SalesforceClientException
      */
     public function findAffiliation(string $id): ?Npe5__Affiliation__c
     {
-        $salesforceObject = $this->_salesforceClient->getById(Npe5__Affiliation__c::TABLE_NAME, $id);
+        try {
+            $salesforceObject = $this->_salesforceClient->getById(Npe5__Affiliation__c::TABLE_NAME, $id);
+        } catch (SalesforceClientException $e) {
+            /**
+             * @internal in case of a 404 exception
+             */
+            $previousException = $e->getPrevious();
+
+            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
+                $previousException->getResponse()->getStatusCode() == 404
+            ) {
+                return null;
+            }
+
+            throw $e;
+        }
 
         return $salesforceObject->getObject();
     }
@@ -135,10 +170,7 @@ class ModelRepository
      */
     public function findAffilationFromContact(string $contactId): SalesforceObjectResults
     {
-        $soqlQuery = new QueryBuilder(
-            Npe5__Affiliation__c::class,
-            QueryBuilder::WITH_SOFT_DELETED
-        );
+        $soqlQuery = new QueryBuilder(Npe5__Affiliation__c::class);
         $soqlQuery
             ->select([
                 'Id',
@@ -182,10 +214,7 @@ class ModelRepository
      */
     public function findMainAffiliationForContact(string $contactId): ?Npe5__Affiliation__c
     {
-        $soqlQuery = new QueryBuilder(
-            Npe5__Affiliation__c::class,
-            QueryBuilder::WITH_SOFT_DELETED
-        );
+        $soqlQuery = new QueryBuilder(Npe5__Affiliation__c::class);
         $soqlQuery
             ->select([
                 'Id',
@@ -218,10 +247,27 @@ class ModelRepository
      * @param string $id id
      *
      * @return Account | null
+     *
+     * @throws SalesforceClientException
      */
     public function findAccount(string $id): ?Account
     {
-        $salesforceObject = $this->_salesforceClient->getById(Account::TABLE_NAME, $id);
+        try {
+            $salesforceObject = $this->_salesforceClient->getById(Account::TABLE_NAME, $id);
+        } catch (SalesforceClientException $e) {
+            /**
+             * @internal in case of a 404 exception
+             */
+            $previousException = $e->getPrevious();
+
+            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
+                $previousException->getResponse()->getStatusCode() == 404
+            ) {
+                return null;
+            }
+
+            throw $e;
+        }
 
         return $salesforceObject->getObject();
     }
