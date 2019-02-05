@@ -128,9 +128,6 @@ class ModelRepository
         $salesforceObjectResults = $this->_salesforceClient->search($queryBuilder);
 
         if ($salesforceObjectResults->getTotalSize() === 1) {
-
-            // var_dump('--------------- findAffiliationEvenDeleted', $salesforceObjectResults->getRecords()); exit;
-
             $salesforceObject = $salesforceObjectResults->getRecords()[0];
 
             return $salesforceObject->getObject();
@@ -143,23 +140,6 @@ class ModelRepository
         }
 
         return null;
-
-        // try {
-        //     $soQuery = "SELECT Id,IsDeleted,Name,npe5__Contact__c,npe5__Organization__c," .
-        //         "npe5__Primary__c,npe5__Status__c,npe5__Role__c " .
-        //         "FROM npe5__Affiliation__c WHERE Id = '%s'";
-        //     $salesforceObjectResults = $this->_salesforceClient->searchSOQL(sprintf($soQuery, $id), $this->_salesforceClient::ALL);
-        //     if ($salesforceObjectResults->getTotalSize() > 1) {
-        //         $this->_logger->alert('Salesforce Model Repository - Find more than one result on findAffiliationEvenDeleted with id ' . $id);
-        //     } else if (0 === $salesforceObjectResults->getTotalSize()) {
-        //         $this->_logger->alert('Salesforce Model Repository - Can not find result on findAffiliationEvenDeleted with id ' . $id);
-        //     }
-        //     $salesforceObject = $salesforceObjectResults->getRecords()[0];
-        // } catch (\Exception $e) {
-        //     $this->_logger->debug('Salesforce Model Repository - Can not find result on findAffiliationEvenDeleted with id ' . $id . ' | ' . $e->getMessage());
-        //     return null;
-        // }
-        // return $this->_denormalizer->denormalize($salesforceObject->getFields(), Affiliation::class);
     }
 
 
@@ -186,25 +166,6 @@ class ModelRepository
         ;
 
         return $this->_salesforceClient->search($soqlQuery);
-
-        // $aAffilation = [];
-        // try {
-        //     $soQuery = "SELECT Id,IsDeleted,Name,npe5__Contact__c,npe5__Organization__c," .
-        //         "npe5__Primary__c,npe5__Status__c,npe5__Role__c " .
-        //         "FROM npe5__Affiliation__c WHERE npe5__Contact__c = '%s'";
-        //     $salesforceResults = $this->_salesforceClient->searchSOQL(sprintf($soQuery, $id));
-
-        //     if ($salesforceResults->getTotalSize() > 0) {
-        //         foreach ($salesforceResults->getRecords() as $record) {
-        //             $aAffilation[] = $this->_denormalizer->denormalize($record->getFields(), Affiliation::class);
-        //         }
-        //     }
-        // } catch (\Exception $e) {
-        //     /**
-        //      * @todo faire un log pour cette erreur
-        //      */
-        // }
-        // return $aAffilation;
     }
 
     /**
