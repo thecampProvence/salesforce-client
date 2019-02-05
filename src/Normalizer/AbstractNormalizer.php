@@ -4,6 +4,7 @@ namespace WakeOnWeb\SalesforceClient\Normalizer;
 
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use WakeOnWeb\SalesforceClient\Model\SalesforceModelInterface;
 
 /**
  * Class AbstractNormalizer.
@@ -120,11 +121,11 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
     /**
      * Get object properties that has a public setter method
      *
-     * @param Object $object
+     * @param SalesforceModelInterface $object
      *
      * @return array
      */
-    protected function getObjectProperties($object)
+    protected function getObjectProperties(SalesforceModelInterface $object)
     {
         if (!isset($this->objectInfo)) {
             $this->objectInfo = new \ReflectionClass($object);
@@ -138,11 +139,11 @@ abstract class AbstractNormalizer implements NormalizerInterface, DenormalizerIn
     /**
      * Get object properties that are of type array
      *
-     * @param Object $object
+     * @param SalesforceModelInterface $object
      *
      * @return array
      */
-    protected function getObjectArrayProperties($object)
+    protected function getObjectArrayProperties(SalesforceModelInterface $object)
     {
         if (!isset($this->objectInfo)) {
             $this->objectInfo = new \ReflectionClass($object);

@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class Relationship_Account_Program__c implements Relationship_Account_Program__cMappingConstantsInterface
+class Relationship_Account_Program__c implements SalesforceModelInterface,Relationship_Account_Program__cMappingConstantsInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

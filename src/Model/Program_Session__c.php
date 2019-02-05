@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class Program_Session__c
+class Program_Session__c implements SalesforceModelInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Affiliation between a Contact and an Account
  */
-class Npe5__Affiliation__c implements Npe5__Affiliation__cMappingConstantsInterface
+class Npe5__Affiliation__c implements SalesforceModelInterface,Npe5__Affiliation__cMappingConstantsInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

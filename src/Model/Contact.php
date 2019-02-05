@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class Contact implements ContactMappingConstantsInterface
+class Contact implements SalesforceModelInterface,ContactMappingConstantsInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

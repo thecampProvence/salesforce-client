@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class On_site_presence__c
+class On_site_presence__c implements SalesforceModelInterface
 {
     // use Traits\ConstantMethods;
     use Traits\IsDeleted;

@@ -15,15 +15,15 @@ interface ClientInterface
 
     public function describeObjectMetadata(string $object, \DateTimeInterface $since = null): array;
 
-    public function create(object $object): DTO\SalesforceObjectCreation;
+    public function create(Model\SalesforceModelInterface $object): DTO\SalesforceObjectCreation;
 
     public function createObject(string $object, array $data): DTO\SalesforceObjectCreation;
 
-    public function patch(object $object);
+    public function patch(Model\SalesforceModelInterface $object);
 
     public function patchObject(string $object, string $id, array $data);
 
-    public function delete(object $object);
+    public function delete(Model\SalesforceModelInterface $object);
 
     public function deleteObject(string $object, string $id);
 

@@ -7,7 +7,7 @@ namespace WakeOnWeb\SalesforceClient\Model;
  *
  * Represent a Salesforce object
  */
-class Account implements AccountMappingConstantsInterface
+class Account implements SalesforceModelInterface,AccountMappingConstantsInterface
 {
     use Traits\ConstantMethods;
     use Traits\IsDeleted;

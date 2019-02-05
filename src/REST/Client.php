@@ -96,11 +96,11 @@ class Client implements ClientInterface
     /**
      * Trigger a POST request to Salesforce with given model object
      *
-     * @param object $object Model object
+     * @param Model\SalesforceModelInterface $object Model object
      *
      * @return DTO\SalesforceObjectCreation
      */
-    public function create(object $object): DTO\SalesforceObjectCreation
+    public function create(Model\SalesforceModelInterface $object): DTO\SalesforceObjectCreation
     {
         $reflectedClass = new \ReflectionClass($object);
         $endpoint       = $reflectedClass->getConstant('TABLE_NAME');
@@ -136,9 +136,9 @@ class Client implements ClientInterface
     /**
      * Trigger a PATCH request to Salesforce with given model object
      *
-     * @param object $object Model object
+     * @param Model\SalesforceModelInterface $object Model object
      */
-    public function patch(object $object)
+    public function patch(Model\SalesforceModelInterface $object)
     {
         $reflectedClass = new \ReflectionClass($object);
         $endpoint       = $reflectedClass->getConstant('TABLE_NAME');
@@ -173,9 +173,9 @@ class Client implements ClientInterface
     /**
      * Trigger a DELETE request to Salesforce with given model object
      *
-     * @param object $object Model object
+     * @param Model\SalesforceModelInterface $object Model object
      */
-    public function delete(object $object)
+    public function delete(Model\SalesforceModelInterface $object)
     {
         $reflectedClass = new \ReflectionClass($object);
         $endpoint       = $reflectedClass->getConstant('TABLE_NAME');
