@@ -75,6 +75,54 @@ class ModelRepository
     }
 
     /**
+     * Search for Salesforce Contacts with given firstname, lastname, email
+     *
+     * @param string $firstname
+     * @param string $lastname
+     * @param string $email
+     *
+     * @return SalesforceObjectResults
+     */
+    public function findSalesforceContactsByHash($firstname, $lastname, $email): SalesforceObjectResults
+    {
+        $queryBuilder = (new QueryBuilder(Contact::class))
+            ->select(['Id', 'FirstName', 'LastName'])
+            ->where(sprintf(
+                "(npe01__WorkEmail__c='%s' OR npe01__AlternateEmail__c='%s' OR npe01__HomeEmail__c='%s') AND FirstName='%s' AND LastName='%s'",
+                $email,
+                $email,
+                $email,
+                $firstname,
+                $lastname
+            ))
+        ;
+
+        return $this->_salesforceClient->search($queryBuilder);
+    }
+
+    /**
+     * @todo find a way to use StringHelper class
+     *
+     * Search for Salesforce Accounts by name
+     *
+     * @param string $organizationName
+     *
+     * @return SalesforceObjectResults
+     */
+    // public function findSalesforceAccountsByName(string $organizationName): SalesforceObjectResults
+    // {
+    //     $queryBuilder = (new QueryBuilder(Account::class))
+    //         ->select(['Id', 'Name', 'Relations_with_thecamp__c'])
+    //         ->where(sprintf(
+    //             "Name='%s'",
+    //             StringHelper::normalizeOrganizationName($organizationName)
+    //         ))
+    //     ;
+
+    //     return $this->_salesforceClient->search($queryBuilder);
+    // }
+
+    /**
      * @param string $id id
      *
      * @return Npe5__Affiliation__c | null
