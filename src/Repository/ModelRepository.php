@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use WakeOnWeb\SalesforceClient\ClientInterface;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObject;
 use WakeOnWeb\SalesforceClient\DTO\SalesforceObjectResults;
+use WakeOnWeb\SalesforceClient\Exception\NotFoundException;
 use WakeOnWeb\SalesforceClient\Exception\SalesforceClientException;
 use WakeOnWeb\SalesforceClient\Model\Account;
 use WakeOnWeb\SalesforceClient\Model\Contact;
@@ -46,26 +47,43 @@ class ModelRepository
     }
 
     /**
+     * Check if given exception matches a 404
+     *
+     * @param SalesforceClientException $e
+     *
+     * @return bool
+     */
+    private function isNotFoundException(SalesforceClientException $e): bool
+    {
+        if ($e instanceof NotFoundException) {
+            return true;
+        }
+
+        $previousException = $e->getPrevious();
+
+        if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
+            $previousException->getResponse()->getStatusCode() == 404
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @param string $id id
      *
-     * @return Contact | null
+     * @return Account | null
      *
      * @throws SalesforceClientException
      */
-    public function findRequiredContact(string $id): ?Contact
+    public function findAccount(string $id): ?Account
     {
         try {
-            $salesforceObject = $this->_salesforceClient->getById(Contact::TABLE_NAME, $id);
+            $salesforceObject = $this->_salesforceClient->getById(Account::TABLE_NAME, $id);
         } catch (SalesforceClientException $e) {
-            /**
-             * @internal in case of a 404 exception
-             */
-            $previousException = $e->getPrevious();
-
-            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
-                $previousException->getResponse()->getStatusCode() == 404
-            ) {
-                return null;
+            if ($this->isNotFoundException($e)) {
+                 return null;
             }
 
             throw $e;
@@ -75,52 +93,40 @@ class ModelRepository
     }
 
     /**
-     * Search for Salesforce Contacts with given firstname, lastname, email
+     * @param string $id id
      *
-     * @param string $firstname
-     * @param string $lastname
-     * @param string $email
+     * @return Contact | null
      *
-     * @return SalesforceObjectResults
+     * @throws SalesforceClientException
      */
-    public function findSalesforceContactsByHash($firstname, $lastname, $email): SalesforceObjectResults
+    public function findContact(string $id): ?Contact
     {
-        $queryBuilder = (new QueryBuilder(Contact::class))
-            ->select(['Id', 'FirstName', 'LastName'])
-            ->where(sprintf(
-                "(npe01__WorkEmail__c='%s' OR npe01__AlternateEmail__c='%s' OR npe01__HomeEmail__c='%s') AND FirstName='%s' AND LastName='%s'",
-                $email,
-                $email,
-                $email,
-                $firstname,
-                $lastname
-            ))
-        ;
+        try {
+            $salesforceObject = $this->_salesforceClient->getById(Contact::TABLE_NAME, $id);
+        } catch (SalesforceClientException $e) {
+            if ($this->isNotFoundException($e)) {
+                 return null;
+            }
 
-        return $this->_salesforceClient->search($queryBuilder);
+            throw $e;
+        }
+
+        return $salesforceObject->getObject();
     }
 
     /**
-     * @todo find a way to use StringHelper class
+     * Clone of findContact
      *
-     * Search for Salesforce Accounts by name
+     * @param string $id id
      *
-     * @param string $organizationName
+     * @return Contact | null
      *
-     * @return SalesforceObjectResults
+     * @throws SalesforceClientException
      */
-    // public function findSalesforceAccountsByName(string $organizationName): SalesforceObjectResults
-    // {
-    //     $queryBuilder = (new QueryBuilder(Account::class))
-    //         ->select(['Id', 'Name', 'Relations_with_thecamp__c'])
-    //         ->where(sprintf(
-    //             "Name='%s'",
-    //             StringHelper::normalizeOrganizationName($organizationName)
-    //         ))
-    //     ;
-
-    //     return $this->_salesforceClient->search($queryBuilder);
-    // }
+    public function findRequiredContact(string $id): ?Contact
+    {
+        return $this->findContact($id);
+    }
 
     /**
      * @param string $id id
@@ -134,15 +140,8 @@ class ModelRepository
         try {
             $salesforceObject = $this->_salesforceClient->getById(Npe5__Affiliation__c::TABLE_NAME, $id);
         } catch (SalesforceClientException $e) {
-            /**
-             * @internal in case of a 404 exception
-             */
-            $previousException = $e->getPrevious();
-
-            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
-                $previousException->getResponse()->getStatusCode() == 404
-            ) {
-                return null;
+            if ($this->isNotFoundException($e)) {
+                 return null;
             }
 
             throw $e;
@@ -250,35 +249,6 @@ class ModelRepository
         }
 
         return null;
-    }
-
-    /**
-     * @param string $id id
-     *
-     * @return Account | null
-     *
-     * @throws SalesforceClientException
-     */
-    public function findAccount(string $id): ?Account
-    {
-        try {
-            $salesforceObject = $this->_salesforceClient->getById(Account::TABLE_NAME, $id);
-        } catch (SalesforceClientException $e) {
-            /**
-             * @internal in case of a 404 exception
-             */
-            $previousException = $e->getPrevious();
-
-            if ($previousException instanceof \GuzzleHttp\Exception\ClientException &&
-                $previousException->getResponse()->getStatusCode() == 404
-            ) {
-                return null;
-            }
-
-            throw $e;
-        }
-
-        return $salesforceObject->getObject();
     }
 
     /**
